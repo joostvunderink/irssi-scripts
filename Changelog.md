@@ -8,3 +8,8 @@ Dejunk
 a bouncer. Thanks to Bradley "Visigoth" Claghorn for reporting this bug.
 
 1.0 - Initial release.
+
+UDaway
+------
+
+1.0 - Initial release.

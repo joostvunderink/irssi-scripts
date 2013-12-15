@@ -13,3 +13,8 @@ that have not been active recently.
 
 So you only see joins, parts, quits and nickchanges that are relevant.
 
+UDaway
+------
+
+Provides a new command, /udaway, which works like /away, but uses
+upside down away reasons.
