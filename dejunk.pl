@@ -1,3 +1,6 @@
+# For the latest version and changelog information, see
+# https://github.com/joostvunderink/irssi-scripts
+
 use strict;
 use warnings;
 
@@ -6,7 +9,7 @@ use Irssi::Irc;
 
 use Data::Dumper;
 
-our $VERSION = '1.0';
+our $VERSION = '1.1';
 our %IRSSI = (
     authors     => 'Joost Vunderink (Garion)',
     contact     => 'joost@vunderink.net',
@@ -14,7 +17,7 @@ our %IRSSI = (
     description => 'Prevents all kinds of junk from showing up',
     license     => 'Public Domain',
     url         => 'http://www.garion.org/irssi/',
-    changed     => '29 September 2012 10:15:10',
+    changed     => '15 December 2013 09:28:41',
 );
 
 my ($STATUS_ACTIVE, $STATUS_INACTIVE, $STATUS_UNKNOWN) = (1, 2, 3);
@@ -388,8 +391,6 @@ Irssi::settings_add_bool('dejunk', 'dejunk_joinpart_show_unknown', 1);
 Irssi::settings_add_bool('dejunk', 'dejunk_debug', 0);
 
 Irssi::signal_add({
-    'server connected'              => \&event_connected,
-    'server disconnected'           => \&event_disconnected,
     'message join'                  => \&event_join,
     'message part'                  => \&event_part,
     'message quit'                  => \&event_quit,
