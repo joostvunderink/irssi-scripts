@@ -44,17 +44,26 @@ sub cmd_dejunk_help {
         "them has not said anything for a while.");
     message("This way, you only see such activity when it matters.");
     message("");
+    message("Dejunk will save its data when it unloads, so when you upgrade it, or restart irssi quickly, it will remember ".
+        "which nicks were active recently on which networks.");
+    message("");
     message("Commands:");
-    message("/dejunk save - Force saving of data immediately.");
+    message("    /dejunk status - Show which activity dejunk has seen recently.");
+    message("    /dejunk save - Force saving of data immediately. Should not be needed at all.");
     message("");
     message("Settings:");
-    message("dejunk_joinpart_enabled - Hide all non-relevant joins, parts, quits and nickchanges.");
-    message("dejunk_joinpart_idle_time - The amount of minutes of inactivity after which a user will be hidden.");
-    message("dejunk_joinpart_min_size - Activity on channels with fewer users than this is not hidden.");
-    message("dejunk_joinpart_show_unknown - If it's unknown whether the user has been active recently, ".
+    message("    dejunk_joinpart_enabled - Hide all non-relevant joins, parts, quits and nickchanges.");
+    message("    dejunk_joinpart_idle_time - The amount of minutes of inactivity after which a user will be hidden.");
+    message("    dejunk_joinpart_min_size - Activity on channels with fewer users than this is not hidden.");
+    message("    dejunk_joinpart_show_unknown - If it's unknown whether the user has been active recently, ".
         "show them if this setting is true. ".
         "This is only relevant if the script has just been loaded for the first time.");
-    message("dejunk_debug - set to ON to see debug messages.");
+    message("    dejunk_debug - set to ON to see debug messages.");
+    message("");
+    message("You can see the current values of all dejunk settings via the following command:");
+    message("    /set dejunk");
+    message("You can change a setting via commands like this one:");
+    message("    /set dejunk_joinpart_min_size 100");
 }
 
 sub cmd_dejunk_status {
@@ -414,6 +423,7 @@ Irssi::theme_register(
     ],
 );
 
+message("Dejunk is being loaded.");
 load_data();
 report_status();
 message("Type /dejunk help for help.");
